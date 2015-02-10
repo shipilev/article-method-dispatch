@@ -79,6 +79,15 @@ public class Dispatch {
     }
 
     @Benchmark
+    public void static_Ref_ifElse() {
+        Target[] l = targets;
+        int c = count;
+        for (int i = 0; i < c; i++) {
+            l[i].do_Static_Ref_ifElse();
+        }
+    }
+
+    @Benchmark
     public void dynamic_Interface_ID_switch() {
         Target[] l = targets;
         int c = count;
@@ -165,6 +174,24 @@ public class Dispatch {
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Abstract_Ref();
+        }
+    }
+
+    @Benchmark
+    public void dynamic_Abstract_Ref_ifElse() {
+        Target[] l = targets;
+        int c = count;
+        for (int i = 0; i < c; i++) {
+            l[i].do_Dynamic_Abstract_Ref_ifElse();
+        }
+    }
+
+    @Benchmark
+    public void dynamic_Interface_Ref_ifElse() {
+        Target[] l = targets;
+        int c = count;
+        for (int i = 0; i < c; i++) {
+            l[i].do_Dynamic_Interface_Ref_ifElse();
         }
     }
 
