@@ -194,4 +194,40 @@ public class Dispatch {
         }
     }
 
+    @Benchmark
+    public void peel_Abstract_Abstract() {
+        Target[] l = targets;
+        int c = count;
+        for (int i = 0; i < c; i++) {
+            l[i].do_Peel_Abstract_Abstract();
+        }
+    }
+
+    @Benchmark
+    public void peel_Abstract_Static() {
+        Target[] l = targets;
+        int c = count;
+        for (int i = 0; i < c; i++) {
+            l[i].do_Peel_Abstract_Static();
+        }
+    }
+
+    @Benchmark
+    public void peel_Interface_Interface() {
+        Target[] l = targets;
+        int c = count;
+        for (int i = 0; i < c; i++) {
+            l[i].do_Peel_Interface_Interface();
+        }
+    }
+
+    @Benchmark
+    public void peel_Interface_Static() {
+        Target[] l = targets;
+        int c = count;
+        for (int i = 0; i < c; i++) {
+            l[i].do_Peel_Interface_Static();
+        }
+    }
+
 }

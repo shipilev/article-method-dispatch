@@ -152,6 +152,42 @@ public class Target {
 
 
     @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+    public int do_Peel_Interface_Static() {
+        if (coder instanceof Coder0) {
+            return Coder0.staticWork(data);
+        } else {
+            return coder.work(data);
+        }
+    }
+
+    @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+    public int do_Peel_Interface_Interface() {
+        if (coder instanceof Coder0) {
+            return coder.work(data);
+        } else {
+            return coder.work(data);
+        }
+    }
+
+    @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+    public int do_Peel_Abstract_Static() {
+        if (abstractCoder instanceof Coder0) {
+            return Coder0.staticWork(data);
+        } else {
+            return abstractCoder.abstractWork(data);
+        }
+    }
+
+    @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+    public int do_Peel_Abstract_Abstract() {
+        if (abstractCoder instanceof Coder0) {
+            return abstractCoder.abstractWork(data);
+        } else {
+            return abstractCoder.abstractWork(data);
+        }
+    }
+
+    @CompilerControl(CompilerControl.Mode.DONT_INLINE)
     public int do_Dynamic_Interface_ID_switch() {
         return interface_ID_Switch().work(data);
     }
