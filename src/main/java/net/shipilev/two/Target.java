@@ -110,10 +110,21 @@ public class Target {
     }
 
     @CompilerControl(CompilerControl.Mode.DONT_INLINE)
-    public int do_Static_Ref_ifElse() {
+    public int do_Static_Interface_Ref_ifElse() {
         if (coder instanceof Coder0) {
             return Coder0.staticWork(data);
         } else if (coder instanceof Coder1) {
+            return Coder1.staticWork(data);
+        } else {
+            throw new IllegalStateException();
+        }
+    }
+
+    @CompilerControl(CompilerControl.Mode.DONT_INLINE)
+    public int do_Static_Abstract_Ref_ifElse() {
+        if (abstractCoder instanceof Coder0) {
+            return Coder0.staticWork(data);
+        } else if (abstractCoder instanceof Coder1) {
             return Coder1.staticWork(data);
         } else {
             throw new IllegalStateException();
