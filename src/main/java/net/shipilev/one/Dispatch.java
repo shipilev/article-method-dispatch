@@ -19,11 +19,11 @@ import java.util.concurrent.TimeUnit;
 @Measurement(iterations = 10, time = 1, timeUnit = TimeUnit.SECONDS)
 @Fork(5)
 @BenchmarkMode(Mode.AverageTime)
-@OutputTimeUnit(TimeUnit.NANOSECONDS)
+@OutputTimeUnit(TimeUnit.MICROSECONDS)
 @State(Scope.Benchmark)
 public class Dispatch {
 
-    @Param("100")
+    @Param("10000")
     private int count;
 
     private Target[] targets;
