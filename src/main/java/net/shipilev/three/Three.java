@@ -38,7 +38,7 @@ public class Three {
     @Param("1")
     private int p3;
 
-    private Target[] targets;
+    private Data[] datas;
 
     @Setup
     public void setup() {
@@ -47,7 +47,7 @@ public class Three {
         int s1 = (count * p1) / (p1 + p2 + p3);
         int s2 = (count * (p1 + p2)) / (p1 + p2 + p3);
 
-        List<Target> ts = new ArrayList<Target>();
+        List<Data> ts = new ArrayList<Data>();
         for (int c = 0; c < count; c++) {
             byte[] contents = new byte[10];
             r.nextBytes(contents);
@@ -60,16 +60,16 @@ public class Three {
             } else {
                 id = 2;
             }
-            ts.add(new Target(id, contents));
+            ts.add(new Data(id, contents));
         }
 
         Collections.shuffle(ts, r);
-        targets = ts.toArray(new Target[0]);
+        datas = ts.toArray(new Data[0]);
     }
 
     @Benchmark
     public void static_ID_switch() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Static_ID_switch();
@@ -78,7 +78,7 @@ public class Three {
 
     @Benchmark
     public void static_ID_ifElse() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Static_ID_ifElse();
@@ -87,7 +87,7 @@ public class Three {
 
     @Benchmark
     public void static_Abstract_Ref_ifElse() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Static_Abstract_Ref_ifElse();
@@ -96,7 +96,7 @@ public class Three {
 
     @Benchmark
     public void static_Interface_Ref_ifElse() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Static_Interface_Ref_ifElse();
@@ -105,7 +105,7 @@ public class Three {
 
     @Benchmark
     public void dynamic_Interface_ID_switch() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Interface_ID_switch();
@@ -114,7 +114,7 @@ public class Three {
 
     @Benchmark
     public void dynamic_Interface_ID_ifElse() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Interface_ID_ifElse();
@@ -123,7 +123,7 @@ public class Three {
 
     @Benchmark
     public void dynamic_Interface_ID_Array() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Interface_ID_Array();
@@ -132,7 +132,7 @@ public class Three {
 
     @Benchmark
     public void dynamic_Interface_Ref() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Interface_Ref();
@@ -141,7 +141,7 @@ public class Three {
 
     @Benchmark
     public void dynamic_Abstract_ID_switch() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Abstract_ID_switch();
@@ -150,7 +150,7 @@ public class Three {
 
     @Benchmark
     public void dynamic_Abstract_ID_ifElse() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Abstract_ID_ifElse();
@@ -159,7 +159,7 @@ public class Three {
 
     @Benchmark
     public void dynamic_Abstract_ID_Array() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Abstract_ID_Array();
@@ -168,7 +168,7 @@ public class Three {
 
     @Benchmark
     public void dynamic_Abstract_Ref() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Abstract_Ref();
@@ -178,7 +178,7 @@ public class Three {
 
     @Benchmark
     public void dynamic_Abstract_Ref_ifElse() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Abstract_Ref_ifElse();
@@ -187,7 +187,7 @@ public class Three {
 
     @Benchmark
     public void dynamic_Interface_Ref_ifElse() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Interface_Ref_ifElse();
@@ -196,7 +196,7 @@ public class Three {
 
     @Benchmark
     public void peel_Abstract_Abstract() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Peel_Abstract_Abstract();
@@ -205,7 +205,7 @@ public class Three {
 
     @Benchmark
     public void peel_Abstract_Static() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Peel_Abstract_Static();
@@ -214,7 +214,7 @@ public class Three {
 
     @Benchmark
     public void peel_Interface_Interface() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Peel_Interface_Interface();
@@ -223,7 +223,7 @@ public class Three {
 
     @Benchmark
     public void peel_Interface_Static() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Peel_Interface_Static();

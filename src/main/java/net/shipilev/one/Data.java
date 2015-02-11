@@ -2,7 +2,7 @@ package net.shipilev.one;
 
 import org.openjdk.jmh.annotations.CompilerControl;
 
-public class Target {
+public class Data {
 
     private static final Coder0 coder0 = new Coder0();
 
@@ -12,7 +12,7 @@ public class Target {
     private final Coder coder;
     private final AbstractCoder abstractCoder;
 
-    public Target(byte id, byte[] data) {
+    public Data(byte id, byte[] data) {
         this.id = id;
         this.data = data;
         this.isCoder0 = (id == 0);

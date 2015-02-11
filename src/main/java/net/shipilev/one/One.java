@@ -26,24 +26,24 @@ public class One {
     @Param("10000")
     private int count;
 
-    private Target[] targets;
+    private Data[] datas;
 
     @Setup
     public void setup() {
         Random r = new Random();
 
-        targets = new Target[count];
+        datas = new Data[count];
         for (int c = 0; c < count; c++) {
             byte[] contents = new byte[10];
             r.nextBytes(contents);
 
-            targets[c] = new Target((byte) 0, contents);
+            datas[c] = new Data((byte) 0, contents);
         }
     }
 
     @Benchmark
     public void static_Ref() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Static_Ref();
@@ -52,7 +52,7 @@ public class One {
 
     @Benchmark
     public void dynamic_Interface_Ref() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Interface_Ref();
@@ -61,7 +61,7 @@ public class One {
 
     @Benchmark
     public void dynamic_Abstract_Ref() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Abstract_Ref();

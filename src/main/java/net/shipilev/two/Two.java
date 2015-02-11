@@ -32,28 +32,28 @@ public class Two {
     @Param({"0.0", "0.1", "0.5", "0.9", "1.0"})
     private double bias;
 
-    private Target[] targets;
+    private Data[] datas;
 
     @Setup
     public void setup() {
         Random r = new Random(12345);
 
-        List<Target> ts = new ArrayList<Target>();
+        List<Data> ts = new ArrayList<Data>();
         for (int c = 0; c < count; c++) {
             byte[] contents = new byte[10];
             r.nextBytes(contents);
 
             byte id = (byte) (c < (bias * count) ? 1 : 0);
-            ts.add(new Target(id, contents));
+            ts.add(new Data(id, contents));
         }
 
         Collections.shuffle(ts, r);
-        targets = ts.toArray(new Target[0]);
+        datas = ts.toArray(new Data[0]);
     }
 
     @Benchmark
     public void static_ID_switch() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Static_ID_switch();
@@ -62,7 +62,7 @@ public class Two {
 
     @Benchmark
     public void static_ID_ifElse() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Static_ID_ifElse();
@@ -71,7 +71,7 @@ public class Two {
 
     @Benchmark
     public void static_Bool_ifElse() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Static_Bool_ifElse();
@@ -80,7 +80,7 @@ public class Two {
 
     @Benchmark
     public void static_Abstract_Ref_ifElse() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Static_Abstract_Ref_ifElse();
@@ -89,7 +89,7 @@ public class Two {
 
     @Benchmark
     public void static_Interface_Ref_ifElse() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Static_Interface_Ref_ifElse();
@@ -98,7 +98,7 @@ public class Two {
 
     @Benchmark
     public void dynamic_Interface_ID_switch() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Interface_ID_switch();
@@ -107,7 +107,7 @@ public class Two {
 
     @Benchmark
     public void dynamic_Interface_ID_ifElse() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Interface_ID_ifElse();
@@ -116,7 +116,7 @@ public class Two {
 
     @Benchmark
     public void dynamic_Interface_ID_Array() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Interface_ID_Array();
@@ -125,7 +125,7 @@ public class Two {
 
     @Benchmark
     public void dynamic_Interface_Bool_ifElse() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Interface_Bool_ifElse();
@@ -134,7 +134,7 @@ public class Two {
 
     @Benchmark
     public void dynamic_Interface_Ref() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Interface_Ref();
@@ -143,7 +143,7 @@ public class Two {
 
     @Benchmark
     public void dynamic_Abstract_ID_switch() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Abstract_ID_switch();
@@ -152,7 +152,7 @@ public class Two {
 
     @Benchmark
     public void dynamic_Abstract_ID_ifElse() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Abstract_ID_ifElse();
@@ -161,7 +161,7 @@ public class Two {
 
     @Benchmark
     public void dynamic_Abstract_ID_Array() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Abstract_ID_Array();
@@ -170,7 +170,7 @@ public class Two {
 
     @Benchmark
     public void dynamic_Abstract_Bool_ifElse() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Abstract_Bool_ifElse();
@@ -179,7 +179,7 @@ public class Two {
 
     @Benchmark
     public void dynamic_Abstract_Ref() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Abstract_Ref();
@@ -188,7 +188,7 @@ public class Two {
 
     @Benchmark
     public void dynamic_Abstract_Ref_ifElse() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Abstract_Ref_ifElse();
@@ -197,7 +197,7 @@ public class Two {
 
     @Benchmark
     public void dynamic_Interface_Ref_ifElse() {
-        Target[] l = targets;
+        Data[] l = datas;
         int c = count;
         for (int i = 0; i < c; i++) {
             l[i].do_Dynamic_Interface_Ref_ifElse();
