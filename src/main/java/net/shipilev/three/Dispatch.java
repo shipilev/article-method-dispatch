@@ -103,7 +103,7 @@ public class Dispatch {
         }
     }
 
-//    @Benchmark
+    @Benchmark
     public void dynamic_Interface_ID_switch() {
         Target[] l = targets;
         int c = count;
@@ -112,7 +112,7 @@ public class Dispatch {
         }
     }
 
-//    @Benchmark
+    @Benchmark
     public void dynamic_Interface_ID_ifElse() {
         Target[] l = targets;
         int c = count;
@@ -121,7 +121,7 @@ public class Dispatch {
         }
     }
 
-//    @Benchmark
+    @Benchmark
     public void dynamic_Interface_ID_Array() {
         Target[] l = targets;
         int c = count;
@@ -139,7 +139,7 @@ public class Dispatch {
         }
     }
 
-//    @Benchmark
+    @Benchmark
     public void dynamic_Abstract_ID_switch() {
         Target[] l = targets;
         int c = count;
@@ -148,7 +148,7 @@ public class Dispatch {
         }
     }
 
-//    @Benchmark
+    @Benchmark
     public void dynamic_Abstract_ID_ifElse() {
         Target[] l = targets;
         int c = count;
@@ -157,7 +157,7 @@ public class Dispatch {
         }
     }
 
-//    @Benchmark
+    @Benchmark
     public void dynamic_Abstract_ID_Array() {
         Target[] l = targets;
         int c = count;
