@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @State(Scope.Benchmark)
-public class Dispatch {
+public class Three {
 
     @Param("10000")
     private int count;
